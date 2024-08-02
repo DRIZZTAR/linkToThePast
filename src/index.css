@@ -35,13 +35,11 @@ body {
 	margin: 0;
 	background: radial-gradient(
 		ellipse at center,
-		rgb(255, 255, 255) 0%,
+		rgb(43, 97, 48) 0%,
 		rgb(0, 0, 0) 50%
 	);
 	font-family: 'Poppins', sans-serif;
 }
-
-
 
 .gradient-text {
 	background: linear-gradient(200deg, #ff0000, #000000, #30c7e9, #5847c4);
@@ -155,6 +153,40 @@ body {
 	text-decoration: none;
 }
 
+/* react-select-styles.css */
+.select__control {
+	border: 1px solid #4b5563 !important;
+	background: rgba(0, 0, 0, 0.6) !important;
+	border-radius: 0.375rem !important;
+}
+
+.select__menu {
+	background: rgba(0, 0, 0, 0.4) !important;
+	border: 1px solid #4b5563 !important;
+	border-radius: 0.375rem !important;
+}
+
+.select__option {
+	color: #ebebe5bd !important;
+}
+
+.select__option--is-focused {
+	background: rgba(255, 255, 255, 0.863) !important;
+	color: #000000 !important;
+}
+
+.select__option--is-selected {
+	background: #ffffff40 !important;
+	color: #ebebe5bd !important;
+}
+
+.select__single-value {
+	color: #ebebe5bd !important;
+}
+
+.select__placeholder {
+	color: #ebebe5bd !important;
+}
 @media (max-width: 768px) {
 	.menu {
 		width: 40%;

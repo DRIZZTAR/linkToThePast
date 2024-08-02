@@ -1,59 +1,82 @@
 import { atom, useAtom } from 'jotai';
 import { pictures } from './bookData.js';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ScrollingText from './ScrollingText.jsx';
 import { ChevronFirst, ChevronLast } from 'lucide-react';
+import MusicPlayer from './MusicPlayer';
 
 export const pageAtom = atom(0);
-// Function to determine if a page should be a web page
+
 const isWebPage = index => {
-	// Example: Make every 5th page a web page
 	return index % 5 === 0 && index !== 0 && index !== pictures.length - 1;
 };
 
-// Function to get web URL for a page
 const getWebUrl = index => {
-	// Example: Rotate through a set of URLs
 	const urls = ['https://www.tysonskakun.dev'];
 	return urls[index % urls.length];
 };
 
 export const pages = [
-	{
-		front: 'cover',
-		back: pictures[0],
-	},
+	{ front: 'cover', back: pictures[0] },
+	...Array.from(
+		{ length: Math.floor((pictures.length - 2) / 2) },
+		(_, i) => ({
+			front: pictures[2 * i + 1],
+			back: pictures[2 * i + 2],
+			isWebPage: isWebPage(2 * i + 1),
+			webUrl: isWebPage(2 * i + 1) ? getWebUrl(2 * i + 1) : undefined,
+		})
+	),
+	{ front: pictures[pictures.length - 1], back: 'back' },
 ];
-
-for (let i = 1; i < pictures.length - 1; i += 2) {
-	pages.push({
-		front: pictures[i % pictures.length],
-		back: pictures[(i + 1) % pictures.length],
-		isWebPage: isWebPage(i),
-		webUrl: isWebPage(i) ? getWebUrl(i) : undefined,
-	});
-}
-
-pages.push({
-	front: pictures[pictures.length - 1],
-	back: 'back',
-});
 
 export const UI = ({ toggleEnvironment, showEnvironment }) => {
 	const [page, setPage] = useAtom(pageAtom);
 	const [menuOpen, setMenuOpen] = useState(false);
+	const navRef = useRef(null);
+	const songRef = useRef(null);
+	const [songStarted, setSongStarted] = useState(false);
 
-	const toggleMenu = () => {
-		setMenuOpen(!menuOpen);
+	const toggleMenu = () => setMenuOpen(!menuOpen);
+	const closeMenu = () => setMenuOpen(false);
+
+	const startSong = () => {
+		if (!songStarted && songRef.current) {
+			songRef.current
+				.play()
+				.catch(error => console.error('Error playing audio:', error));
+			setSongStarted(true);
+		}
 	};
 
-	const closeMenu = () => {
-		setMenuOpen(false);
+	const scrollToButton = index => {
+		const button = navRef.current.children[index + 1];
+		if (button) {
+			button.scrollIntoView({
+				behavior: 'smooth',
+				block: 'nearest',
+				inline: 'center',
+			});
+		}
 	};
 
-	  const goToFirstPage = () => setPage(0);
-		const goToLastPage = () => setPage(pages.length);
+	const goToFirstPage = () => {
+		setPage(0);
+		scrollToButton(0);
+		startSong();
+	};
 
+	const goToLastPage = () => {
+		setPage(pages.length);
+		scrollToButton(pages.length);
+		startSong();
+	};
+
+	const goToPage = index => {
+		setPage(index);
+		scrollToButton(index);
+		startSong();
+	};
 
 	useEffect(() => {
 		const handleClickOutside = event => {
@@ -67,14 +90,15 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 		};
 
 		document.addEventListener('mousedown', handleClickOutside);
-
-		return () => {
+		return () =>
 			document.removeEventListener('mousedown', handleClickOutside);
-		};
 	}, [menuOpen]);
 
 	useEffect(() => {
 		const audio = new Audio('/audios/page-flip-01a.mp3');
+		songRef.current = new Audio('/audios/zeldaSong1.mp3');
+		songRef.current.volume = 0.1;
+		songRef.current.loop = true;
 		audio.volume = 0.1;
 		audio.play();
 	}, [page]);
@@ -86,17 +110,21 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 					<h1 className='text-4xl font-light'>The Legend Of Zelda</h1>
 					<p className='text-xl font-thin'>ゼルダの伝説</p>
 					<p className='text-xl font-thin'>A LINK TO THE PAST</p>
-					<p className='text-xl font-thin'>November 21, 1991</p>
 					<a
-						className=' font-thin text-lg'
+						className='font-thin text-lg'
 						href='https://www.TysonSkakun.dev'
 						target='_blank'
+						rel='noopener noreferrer'
 					>
 						TysonSkakun.Dev
 					</a>
+					<MusicPlayer />
 				</div>
 				<div className='w-full font-inter overflow-auto pointer-events-auto flex justify-center'>
-					<div className='overflow-auto flex items-center gap-4 max-w-full p-5'>
+					<div
+						ref={navRef}
+						className='overflow-auto flex items-center gap-4 max-w-full p-5'
+					>
 						<button
 							className='border-transparent hover:border-white transition-all duration-300 p-2 rounded-full text-lg uppercase shrink-0 border bg-black/30 text-slate-200'
 							onClick={goToLastPage}
@@ -104,7 +132,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 						>
 							<ChevronLast size={24} />
 						</button>
-						{[...pages].map((_, index) => (
+						{pages.map((_, index) => (
 							<button
 								key={index}
 								className={`border-transparent hover:border-white transition-all duration-300 px-4 py-2 rounded-full text-lg uppercase shrink-0 border ${
@@ -112,7 +140,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 										? 'bg-white/90 text-black'
 										: 'bg-black/30 text-slate-200'
 								}`}
-								onClick={() => setPage(index)}
+								onClick={() => goToPage(index)}
 							>
 								{index === 0 ? 'Cover' : `Page ${index}`}
 							</button>
@@ -123,7 +151,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 									? 'bg-white/90 text-black'
 									: 'bg-black/30 text-slate-200'
 							}`}
-							onClick={() => setPage(pages.length)}
+							onClick={() => goToPage(pages.length)}
 						>
 							Back Cover
 						</button>
@@ -138,7 +166,6 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 				</div>
 			</main>
 
-			{/* <ScrollingText /> */}
 			<div
 				className={`hamburger ${menuOpen ? 'active' : ''}`}
 				onClick={toggleMenu}
@@ -160,17 +187,23 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 						</a>
 					</div>
 					<div className='menu-item font-bold'>
-						{' '}
 						<a
 							href='https://batman-omega.vercel.app/'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							See Another Book
+							Batman Issue 01, 2011
 						</a>
 					</div>
-					<div className='menu-item font-bold'>Caught Em all?</div>
-					<div className='menu-item font-bold'>Catch Em Again</div>
+					<div className='menu-item font-bold'>
+						<a
+							href='https://batman-omega.vercel.app/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							Nintendo Power, Special
+						</a>
+					</div>
 				</div>
 			</div>
 		</>
