@@ -62,17 +62,17 @@ const MusicPlayer = () => {
 	return (
 		<div className='flex flex-row gap-2 text-sm font-inter'>
 			<button
-				className='transition-all duration-700 rounded-full uppercase bg-black/30 text-slate-200'
+				className='transition-all duration-700uppercase font-bold text-slate-100 cursor-pointer'
 				onClick={playPause}
 			>
 				{isPlaying ? 'Pause' : 'Play'}
 			</button>
-			<div className='w-48'>
+			<div className=''>
 				<Select
 					options={songs}
 					onChange={handleChange}
 					value={songs.find(song => song.value === currentSong)}
-					className='basic-single'
+					className='basic-single cursor-pointer'
 					classNamePrefix='select'
 				/>
 			</div>

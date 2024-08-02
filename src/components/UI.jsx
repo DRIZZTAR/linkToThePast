@@ -107,19 +107,19 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 		<>
 			<main className='pointer-events-none select-none z-10 fixed inset-0 flex justify-between flex-col'>
 				<div className='p-4 pointer-events-auto text-slate-200'>
-					<h1 className='text-4xl font-light'>The Legend Of Zelda</h1>
-					<p className='text-xl font-thin'>ゼルダの伝説</p>
-					<p className='text-xl font-thin'>A LINK TO THE PAST</p>
-					<a
-						className='font-thin text-lg'
-						href='https://www.TysonSkakun.dev'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						TysonSkakun.Dev
-					</a>
+					<h1 className='text-3xl font-light sm:text-5xl'>
+						The Legend Of Zelda
+					</h1>
+					<p className='text-lg font-thin sm:text-2xl'>
+						ゼルダの伝説
+					</p>
+					<p className='text-lg font-thin sm:text-2xl'>
+						A LINK TO THE PAST
+					</p>
+
 					<MusicPlayer />
 				</div>
+
 				<div className='w-full font-inter overflow-auto pointer-events-auto flex justify-center'>
 					<div
 						ref={navRef}
@@ -177,16 +177,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 			<div className={`menu ${menuOpen ? 'active' : ''}`}>
 				<div className='menu-close' onClick={closeMenu}></div>
 				<div className='menu-content p-10'>
-					<div className='menu-item font-extrabold'>
-						<a
-							href='https://www.linkedin.com/in/tyson-skakun-tail/'
-							target='_blank'
-							rel='noopener noreferrer'
-						>
-							Hire Me
-						</a>
-					</div>
-					<div className='menu-item font-bold'>
+					<div className='menu-item'>
 						<a
 							href='https://batman-omega.vercel.app/'
 							target='_blank'
@@ -203,6 +194,27 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 						>
 							Nintendo Power, Special
 						</a>
+					</div>
+					<div className='menu-item font-extrabold'>
+						<div className='group'>
+							<a
+								href='https://www.linkedin.com/in/tyson-skakun-tail/'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='gradient-text hover:text-blue-700'
+							>
+								Hire Me
+							</a>
+							{' // '}
+							<a
+								href='https://www.TysonSkakun.dev/'
+								target='_blank'
+								rel='noopener noreferrer'
+								className='gradient-text hover:text-blue-700'
+							>
+								My Site
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

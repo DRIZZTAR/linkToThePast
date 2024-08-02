@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 
 @keyframes gradientShift {
 	0% {
@@ -46,6 +47,7 @@ body {
 	background-size: 400% 400%;
 	animation: gradientShift 18s ease infinite;
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -143,7 +145,7 @@ body {
 .menu-item {
 	cursor: pointer;
 	font-size: 1.2rem;
-	font-weight: 500;
+	font-weight: 300;
 	transition: color 0.3s ease;
 	text-align: center;
 }
@@ -167,7 +169,7 @@ body {
 }
 
 .select__option {
-	color: #ebebe5bd !important;
+	color: #ebebe5 !important;
 }
 
 .select__option--is-focused {
