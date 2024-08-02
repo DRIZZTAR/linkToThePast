@@ -77,12 +77,11 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 	return (
 		<>
 			<main className='pointer-events-none select-none z-10 fixed inset-0 flex justify-between flex-col'>
-				<div className='p-4 pointer-events-auto text-slate-700'>
-					<h1 className='text-4xl font-light'>Le Petit Prince</h1>
-					<p className='gradient-text text-xl font-thin'>
-						Antoine de Saint-Exupéry
-					</p>
-					<p className='text-xl font-thin'>April 6, 1943</p>
+				<div className='p-4 pointer-events-auto text-slate-200'>
+					<h1 className='text-4xl font-light'>The Legend Of Zelda</h1>
+					<p className='text-xl font-thin'>ゼルダの伝説</p>
+					<p className='text-xl font-thin'>A LINK TO THE PAST</p>
+					<p className='text-xl font-thin'>November 21, 1991</p>
 					<a
 						className=' font-thin text-lg'
 						href='https://www.TysonSkakun.dev'
@@ -99,7 +98,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 								className={`border-transparent hover:border-white transition-all duration-300 px-4 py-2 rounded-full text-lg uppercase shrink-0 border ${
 									index === page
 										? 'bg-white/90 text-black'
-										: 'bg-black/30 text-white'
+										: 'bg-black/30 text-slate-200'
 								}`}
 								onClick={() => setPage(index)}
 							>
@@ -110,7 +109,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							className={`border-transparent font-inter hover:border-white transition-all duration-300 px-4 py-3 rounded-full text-lg uppercase shrink-0 border ${
 								page === pages.length
 									? 'bg-white/90 text-black'
-									: 'bg-black/30 text-white'
+									: 'bg-black/30 text-slate-200'
 							}`}
 							onClick={() => setPage(pages.length)}
 						>

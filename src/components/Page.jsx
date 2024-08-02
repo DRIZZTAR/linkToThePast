@@ -21,12 +21,12 @@ import { useAtom } from 'jotai';
 
 // Constants
 
-const easingFactor = 0.8; // Y axis
+const easingFactor = 0.5; // Y axis
 const easingFactorFold = 0.3; // X axis
-const insideCurveStrength = 0.16;
-const outsideCurveStrength = 0.08;
-const turningCurveStrentgh = 0.19;
-const emissiveIntensityPower = 0.3;
+const insideCurveStrength = 0.18;
+const outsideCurveStrength = 0.05;
+const turningCurveStrentgh = 0.09;
+const emissiveIntensityPower = 0.1;
 const openedPageSpread = 1.5;
 
 const whiteColor = new Color('white');
