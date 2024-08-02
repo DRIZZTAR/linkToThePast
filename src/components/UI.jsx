@@ -2,6 +2,7 @@ import { atom, useAtom } from 'jotai';
 import { pictures } from './bookData.js';
 import { useEffect, useState } from 'react';
 import ScrollingText from './ScrollingText.jsx';
+import { ChevronFirst, ChevronLast } from 'lucide-react';
 
 export const pageAtom = atom(0);
 // Function to determine if a page should be a web page
@@ -50,6 +51,10 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 		setMenuOpen(false);
 	};
 
+	  const goToFirstPage = () => setPage(0);
+		const goToLastPage = () => setPage(pages.length);
+
+
 	useEffect(() => {
 		const handleClickOutside = event => {
 			if (
@@ -92,6 +97,13 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 				</div>
 				<div className='w-full font-inter overflow-auto pointer-events-auto flex justify-center'>
 					<div className='overflow-auto flex items-center gap-4 max-w-full p-5'>
+						<button
+							className='border-transparent hover:border-white transition-all duration-300 p-2 rounded-full text-lg uppercase shrink-0 border bg-black/30 text-slate-200'
+							onClick={goToLastPage}
+							title='Back Cover'
+						>
+							<ChevronLast size={24} />
+						</button>
 						{[...pages].map((_, index) => (
 							<button
 								key={index}
@@ -114,6 +126,13 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							onClick={() => setPage(pages.length)}
 						>
 							Back Cover
+						</button>
+						<button
+							className='border-transparent hover:border-white transition-all duration-300 p-2 rounded-full text-lg uppercase shrink-0 border bg-black/30 text-slate-200'
+							onClick={goToFirstPage}
+							title='Front Cover'
+						>
+							<ChevronFirst size={24} />
 						</button>
 					</div>
 				</div>
