@@ -9,7 +9,7 @@ const MusicPlayer = () => {
 
 	useEffect(() => {
 		songRef.current = new Audio(`/audios/${currentSong}`);
-		songRef.current.volume = 0.3;
+		songRef.current.volume = 0.2;
 		songRef.current.loop = true;
 
 		return () => {

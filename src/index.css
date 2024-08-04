@@ -32,8 +32,16 @@
 	height: 100vh;
 }
 
-body {
+html, body {
 	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden; /* Prevent scrolling */
+}
+
+
+body {
+
 	background: radial-gradient(
 		ellipse at center,
 		rgb(43, 97, 48) 0%,

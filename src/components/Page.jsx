@@ -13,6 +13,7 @@ import {
 	SkinnedMesh,
 	SkeletonHelper,
 	SRGBColorSpace,
+	Vector2,
 } from 'three';
 import { degToRad, MathUtils } from 'three/src/math/MathUtils.js';
 import { pages, pageAtom } from './UI.jsx';
@@ -141,7 +142,6 @@ export default function Page({
 					: {
 							roughness: 0.3,
 							metalness: 0.3,
-							
 					  }),
 				emissive: emissiveColor,
 				emissiveIntensity: 0,
@@ -156,6 +156,7 @@ export default function Page({
 					: {
 							roughness: 0.3,
 							metalness: 0.3,
+							
 					  }),
 				emissive: emissiveColor,
 				emissiveIntensity: 0,
