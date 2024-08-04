@@ -71,7 +71,7 @@ body {
 .hamburger div {
 	width: 100%;
 	height: 4px;
-	background: linear-gradient(200deg, #ff0000, #000000, #cfee20, #009933);
+	background: linear-gradient(200deg, #ff0000, #1d1b1b, #cfee20, #009933);
 	background-size: 400% 400%;
 	animation: gradientShift 18s ease infinite;
 	border-radius: 10px;
@@ -169,7 +169,7 @@ body {
 }
 
 .select__option {
-	color: #ebebe5 !important;
+	color: #ebebe581 !important;
 }
 
 .select__option--is-focused {

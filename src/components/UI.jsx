@@ -107,7 +107,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 		<>
 			<main className='pointer-events-none select-none z-10 fixed inset-0 flex justify-between flex-col'>
 				<div className='p-4 pointer-events-auto text-slate-200'>
-					<h1 className='text-3xl font-light sm:text-5xl'>
+					<h1 className='text-3xl font-light sm:text-4xl'>
 						The Legend Of Zelda
 					</h1>
 					<p className='text-lg font-thin sm:text-2xl'>
@@ -123,7 +123,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 				<div className='w-full font-inter overflow-auto pointer-events-auto flex justify-center'>
 					<div
 						ref={navRef}
-						className='overflow-auto flex items-center gap-4 max-w-full p-5'
+						className='overflow-auto flex items-center gap-4 max-w-full p-4'
 					>
 						<button
 							className='border-transparent hover:border-white transition-all duration-300 p-2 rounded-full text-lg uppercase shrink-0 border bg-black/30 text-slate-200'
@@ -135,7 +135,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 						{pages.map((_, index) => (
 							<button
 								key={index}
-								className={`border-transparent hover:border-white transition-all duration-300 px-4 py-2 rounded-full text-lg uppercase shrink-0 border ${
+								className={`border-transparent hover:border-white transition-all duration-300 px-2 py-2 rounded-full text-sm sm:text-lg uppercase shrink-0 border ${
 									index === page
 										? 'bg-white/90 text-black'
 										: 'bg-black/30 text-slate-200'
@@ -146,7 +146,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							</button>
 						))}
 						<button
-							className={`border-transparent font-inter hover:border-white transition-all duration-300 px-4 py-3 rounded-full text-lg uppercase shrink-0 border ${
+							className={`border-transparent font-inter hover:border-white transition-all duration-300 px-2 py-2 rounded-full test-sm sm:text-lg uppercase shrink-0 border ${
 								page === pages.length
 									? 'bg-white/90 text-black'
 									: 'bg-black/30 text-slate-200'
@@ -198,19 +198,9 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 					<div className='menu-item font-extrabold'>
 						<div className='group'>
 							<a
-								href='https://www.linkedin.com/in/tyson-skakun-tail/'
-								target='_blank'
-								rel='noopener noreferrer'
-								className='gradient-text hover:text-blue-700'
-							>
-								Hire Me
-							</a>
-							{' // '}
-							<a
 								href='https://www.TysonSkakun.dev/'
 								target='_blank'
 								rel='noopener noreferrer'
-								className='gradient-text hover:text-blue-700'
 							>
 								My Site
 							</a>
