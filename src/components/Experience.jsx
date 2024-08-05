@@ -74,7 +74,7 @@ export const Experience = () => {
 			{/* {showEnvironment &&  */}
 			<Environment
 				preset='city'
-				environmentIntensity={0.6}
+				environmentIntensity={0.8}
 			/>
 			{/* } */}
 			<directionalLight

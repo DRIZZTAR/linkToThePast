@@ -163,7 +163,7 @@ export default function Page({
 			}),
 		];
 		const mesh = new SkinnedMesh(pageGeometry, materials);
-		mesh.castShadow = true;
+		mesh.castShadow = false;
 		mesh.receiveShadow = true;
 		mesh.frustumCulled = false;
 		mesh.add(skeleton.bones[0]);

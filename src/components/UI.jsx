@@ -63,19 +63,19 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 	const goToFirstPage = () => {
 		setPage(0);
 		scrollToButton(0);
-		startSong();
+
 	};
 
 	const goToLastPage = () => {
 		setPage(pages.length);
 		scrollToButton(pages.length);
-		startSong();
+
 	};
 
 	const goToPage = index => {
 		setPage(index);
 		scrollToButton(index);
-		startSong();
+
 	};
 
 	useEffect(() => {
@@ -96,7 +96,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 
 	useEffect(() => {
 		const audio = new Audio('/audios/page-flip-01a.mp3');
-		songRef.current = new Audio('/audios/zeldaSong1.mp3');
+		songRef.current = new Audio('/audios/song1.mp3');
 		songRef.current.volume = 0.1;
 		songRef.current.loop = true;
 		audio.volume = 0.1;
@@ -183,7 +183,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							Batman Issue 01, 2011
+							Batman Issue #01
 						</a>
 					</div>
 					<div className='menu-item font-bold'>
@@ -192,7 +192,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							Nintendo Power, Special
+							Nintendo Power
 						</a>
 					</div>
 					<div className='menu-item font-extrabold'>
@@ -202,7 +202,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 								target='_blank'
 								rel='noopener noreferrer'
 							>
-								My Site
+								Personal Site
 							</a>
 						</div>
 					</div>
