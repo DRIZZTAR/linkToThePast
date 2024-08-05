@@ -81,7 +81,7 @@ function App() {
 				initialState={active => active}
 			/>
 			<Canvas shadows camera={{ position: [-0.5, 2, 4], fov: 35 }}>
-				<Perf display={true} position='bottom-left' />
+				{/* <Perf display={true} position='bottom-left' /> */}
 				<PerformanceMonitor
 					onIncline={() => setDpr(2)}
 					onDecline={() => setDpr(1)}
