@@ -1,4 +1,4 @@
-# r3f-animated-book-slider
+# React Three Fiber Animated Super Nintendo Manual
 
 ![Website Banner](https://via.placeholder.com/800x150/FFFFFF/000000?text=TysonSkakun.dev)
 
