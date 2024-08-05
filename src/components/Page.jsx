@@ -85,7 +85,7 @@ const pageMaterials = [
 pages.forEach(page => {
 	useTexture.preload(`/textures/${page.front}.jpg`);
 	useTexture.preload(`/textures/${page.back}.jpg`);
-	useTexture.preload(`/textures/overlayRoughness.jpg`);
+	useTexture.preload(`/textures/overlayRoughness2.jpg`);
 });
 
 export default function Page({
@@ -101,7 +101,7 @@ export default function Page({
 		`/textures/${front}.jpg`,
 		`/textures/${back}.jpg`,
 		...(number === 0 || number === pages.length - 1
-			? [`/textures/overlayRoughness.jpg`]
+			? [`/textures/overlayRoughness2.jpg`]
 			: []),
 	]);
 
@@ -135,11 +135,13 @@ export default function Page({
 			new MeshStandardMaterial({
 				color: whiteColor,
 				map: picture,
-				...(number === 0
+				...(number === 0 // Cover
 					? {
 							roughnessMap: pictureRoughness,
+							roughness: 0.3,
+							metalness: 0.7,
 					  }
-					: {
+					: { // Left Hand Pages
 							roughness: 0.3,
 							metalness: 0.3,
 					  }),
@@ -149,14 +151,15 @@ export default function Page({
 			new MeshStandardMaterial({
 				color: whiteColor,
 				map: picture2,
-				...(number === pages.length - 1
+				...(number === pages.length - 1 // last page
 					? {
 							roughnessMap: pictureRoughness,
+							roughness: 0.3,
+							metalness: 0.7,
 					  }
-					: {
+					: { // Right Hand Pages
 							roughness: 0.3,
 							metalness: 0.3,
-							
 					  }),
 				emissive: emissiveColor,
 				emissiveIntensity: 0,
