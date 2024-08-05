@@ -6,6 +6,9 @@ import {
 	PresentationControls,
 	Stage,
 	Html,
+	Sky,
+	Stars,
+	Sparkles,
 } from '@react-three/drei';
 import { Book } from './Book';
 
@@ -53,7 +56,9 @@ export const Experience = () => {
 					config={{ mass: 2, tension: 400 }}
 					snap={{ mass: 4, tension: 400 }}
 				> */}
+
 				<Book position={[0, 0, 0]} />
+
 				<rectAreaLight
 					intensity={15}
 					width={1.0}
@@ -72,23 +77,35 @@ export const Experience = () => {
 				enablePan={true}
 			/>
 			{/* {showEnvironment &&  */}
-			<Environment
-				preset='city'
+			{/* <Environment
+				background={false}
+				backgroundBlurriness={0.06}
+				preset='forest'
 				environmentIntensity={0.8}
-			/>
+			/> */}
+			{/* <Stars
+				radius={10}
+				depth={1}
+				count={5000}
+				factor={4}
+				saturation={10}
+				fade
+				speed={1}
+			/> */}
+
 			{/* } */}
 			<directionalLight
 				position={[2, 5, 2]}
-				intensity={2}
+				intensity={6}
 				castShadow
 				shadow-mapSize-width={2048}
 				shadow-mapSize-height={2048}
 				shadow-bias={-0.0001}
 			/>
-			<mesh position-y={-1.5} rotation-x={-Math.PI / 2} receiveShadow>
+			{/* <mesh position-y={-1.5} rotation-x={-Math.PI / 2} receiveShadow>
 				<planeGeometry args={[100, 100]} />
-				<shadowMaterial color={"white"} transparent opacity={0.04} />
-			</mesh>
+				<shadowMaterial color={'white'} transparent opacity={0.04} />
+			</mesh> */}
 		</>
 	);
 };

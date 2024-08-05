@@ -94,9 +94,9 @@ function App() {
 						</group>
 					{/* </XR> */}
 					<EffectComposer>
-						<Vignette eskil={true} offset={0.6} darkness={2} />
+						<Vignette eskil={true} offset={0.6} darkness={3} />
 						{/* <ColorAverage
-							blendFunction={BlendFunction.OVERLAY} // blend mode
+							blendFunction={BlendFunction.REFLECT} // blend mode
 						/>{' '} */}
 						{/* Metal page effect*/}
 						{/* <Sepia blendFunction={BlendFunction.OVERLAY} /> */}
