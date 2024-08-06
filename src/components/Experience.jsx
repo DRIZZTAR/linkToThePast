@@ -95,9 +95,8 @@ export const Experience = () => {
 
 			{/* } */}
 			<directionalLight
-				position={[2, 5, 1]}
-				intensity={6}
-				castShadow
+				position={[2, 6, 2]}
+				intensity={8}
 				shadow-mapSize-width={2048}
 				shadow-mapSize-height={2048}
 				shadow-bias={-0.0001}
