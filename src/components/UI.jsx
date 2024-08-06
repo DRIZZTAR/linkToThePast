@@ -188,7 +188,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 					</div>
 					<div className='menu-item font-bold'>
 						<a
-							href='https://batman-omega.vercel.app/'
+							href='https://nintendo-power-pokemon.vercel.app/'
 							target='_blank'
 							rel='noopener noreferrer'
 						>
