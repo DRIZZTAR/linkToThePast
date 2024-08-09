@@ -179,6 +179,15 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 				<div className='menu-content p-10'>
 					<div className='menu-item'>
 						<a
+							href='https://vogue-silk.vercel.app/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							Vogue, 2021
+						</a>
+					</div>
+					<div className='menu-item'>
+						<a
 							href='https://batman-omega.vercel.app/'
 							target='_blank'
 							rel='noopener noreferrer'

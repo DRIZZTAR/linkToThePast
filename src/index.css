@@ -74,7 +74,7 @@ body {
 .hamburger div {
 	width: 100%;
 	height: 4px;
-	background: linear-gradient(100deg, #000000, #ffffff, #cfee20, #00c542);
+	background: linear-gradient(100deg, #000000, #ffffff, #eb0089, #d4af95);
 	background-size: 400% 400%;
 	animation: gradientShift 18s ease infinite;
 	border-radius: 10px;
@@ -102,9 +102,9 @@ body {
 	width: 280px;
 	height: 100%;
 	background: linear-gradient(
-		270deg,
-		rgba(189, 170, 170, 0.8) 0%,
-		rgb(165, 154, 154) 100%
+		300deg,
+		rgba(179, 179, 179, 0.8) 0%,
+		rgb(129, 129, 129) 100%
 	);
 	transform: translateX(100%);
 	transition: transform 0.5s ease;
