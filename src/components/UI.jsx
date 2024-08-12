@@ -183,7 +183,16 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							Vogue, 2021
+							Vogue
+						</a>
+					</div>
+					<div className='menu-item'>
+						<a
+							href='https://dragon-ball-three.vercel.app/'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							DragonBall
 						</a>
 					</div>
 					<div className='menu-item'>
@@ -192,7 +201,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							Batman Issue #01
+							Batman #01
 						</a>
 					</div>
 					<div className='menu-item font-bold'>
