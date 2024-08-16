@@ -192,7 +192,7 @@ export const UI = ({ toggleEnvironment, showEnvironment }) => {
 							target='_blank'
 							rel='noopener noreferrer'
 						>
-							WATCHMEN
+							Watchmen
 						</a>
 					</div>
 					<div className='menu-item'>
